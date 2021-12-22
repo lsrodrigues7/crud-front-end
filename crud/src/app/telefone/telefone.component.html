@@ -1,0 +1,66 @@
+<mat-card class="example-card" style="margin-top: 30px">
+    <mat-card-header>
+      <mat-card-title>Consulta de Telefones</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" align="right">
+            <button class="botaoCad" mat-raised-button (click)="cadastrar()">Cadastrar Telefone</button>
+        </div>
+
+      
+          <mat-card class="body" style="margin-top: 15px;">       
+          <div class="example-container mat-elevation-z8" style="margin-top: 30px">
+            
+          <mat-table #table [dataSource]="dataSource"  matSort class = "mat-elevation-z8">
+            <div>
+    
+            <ng-container matColumnDef="codigoTelefone">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                Cód. Telefone</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.codigoTelefone }}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="numeroTelefone">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+               Número</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.numeroTelefone |  mask: '(00) 00000-0000' }}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nomeCliente">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+               Nome do Cliente</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.nomeCliente}}
+              </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="select">
+              <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+              <mat-cell
+                *matCellDef="let element"
+                align="right"
+                >
+              <button
+              class="btRemover"
+              mat-icon-button
+              matTooltip="Clique para Remover o Registro"
+              (click)="remover(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+              </mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row class="clicar" *matRowDef="let row; columns: displayedColumns" ></mat-row>
+          </div>
+          </mat-table>
+
+          </div>
+      </mat-card>      
+      </mat-card-content>
+
+  

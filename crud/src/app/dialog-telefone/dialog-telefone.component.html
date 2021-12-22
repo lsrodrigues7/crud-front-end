@@ -1,0 +1,17 @@
+<mat-card-header>
+    <mat-card-title >
+      Cadastrar Telefone
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+        <mat-form-field  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 input" >
+          <mat-label>Número:</mat-label>
+          <input matInput [(ngModel)]="txtNumeroTelefone" mask="(00) 00000-0000" autocomplete="off"/>
+        </mat-form-field>
+      <mat-dialog-actions>
+        <button class="mat-raised-button cadastrar" (click)="cadastrar()">Cadastrar</button>
+        <button class="mat-raised-button voltar" (click)="voltar()">Voltar</button>
+    </mat-dialog-actions>
+
+  </mat-card-content>
+

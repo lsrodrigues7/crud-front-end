@@ -1,0 +1,34 @@
+<mat-card-header>
+    <mat-card-title >
+      Cadastrar Cliente
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+        <mat-form-field  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 input" >
+          <mat-label>Nome:</mat-label>
+          <input matInput minlength="10" placeholder="Ex: Leonardo Rodrigues" [(ngModel)]="model.nomeCliente" autocomplete="off"/>
+        </mat-form-field>
+        <!-- [(ngModel)]="model.enderecoCliente" -->
+        <mat-form-field  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 input" >
+          <mat-label>Endereço:</mat-label>
+          <input matInput placeholder="Ex: Rua Palestra, 202" [(ngModel)]="model.enderecoCliente" autocomplete="off"/>
+        </mat-form-field>
+
+        <mat-form-field  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 input">
+          <mat-label>Bairro:</mat-label>
+          <input matInput placeholder="Ex: Centro" [(ngModel)]="model.bairroCliente" autocomplete="off"/>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 col-sm-8 col-md-8 col-lg-12 col-xl-12 input">
+          <mat-label>Telefone</mat-label>
+          <mat-select [(ngModel)]="telefone" panelClass="example-long-panel" (selectionChange)="setTelefone($event)">
+            <mat-option *ngFor="let tel of telefones" [value]=tel>
+              {{ tel.numeroTelefone  |  mask: '(00) 00000-0000'}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <mat-dialog-actions>
+        <button class="mat-raised-button cadastrar" (click)="validaCadastro()">Cadastrar</button>
+        <button class="mat-raised-button voltar" (click)="voltar()">Voltar</button>
+    </mat-dialog-actions>
+  </mat-card-content>
